@@ -3,12 +3,13 @@ import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { AuthContext } from './src/components/context';
-import { DrawerContent } from './src/navigation/DrawerContent';
-import BottomNavigation from './src/navigation/MainNavigation';
-import DashboardNavigation from './src/navigation/DashboardNavigation';
-import TherapyNavigation from './src/navigation/TherapyNavigation';
-import RootStackNavigator from './src/navigation/RootStackNavigator';
+import { AuthContext } from './components/context';
+import { DrawerContent } from './navigation/DrawerContent';
+import BottomNavigation from './navigation/MainNavigation';
+import DashboardNavigation from './navigation/DashboardNavigation';
+import TherapyNavigation from './navigation/TherapyNavigation';
+import RootStackNavigator from './navigation/RootStackNavigator';
+import { setView } from './properties';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +20,7 @@ const App = () => {
 
   const authContext = React.useMemo(() => ({
     signIn: (username) => {
-      console.log(username);
+      setView('doctor');
       setUserToken('abcd');
       setIsLoading(false);
     },
